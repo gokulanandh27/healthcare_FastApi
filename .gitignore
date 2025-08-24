@@ -1,0 +1,18 @@
+﻿
+Python
+pycache/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+
+Local uploads and indexes
+storage/
+
+VS Code
+.vscode/
+
+Docker artifacts
+*.tar

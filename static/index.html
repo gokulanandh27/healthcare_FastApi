@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare AI Assistant</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Authentication Section -->
+        <div id="auth-section" class="auth-container">
+            <div class="auth-card">
+                <h1>🏥 Healthcare AI Assistant</h1>
+                <p>Secure access to your personal medical AI</p>
+                
+                <div class="tab-buttons">
+                    <button id="login-tab" class="tab-btn active" onclick="switchTab('login')">Sign In</button>
+                    <button id="register-tab" class="tab-btn" onclick="switchTab('register')">Sign Up</button>
+                </div>
+                
+                <!-- Login Form -->
+                <div id="login-form" class="auth-form active">
+                    <form onsubmit="handleLogin(event)">
+                        <input type="text" id="login-username" placeholder="Username" required>
+                        <input type="password" id="login-password" placeholder="Password" required>
+                        <button type="submit" class="auth-btn">🔑 Sign In</button>
+                    </form>
+                </div>
+                
+                <!-- Register Form -->
+                <div id="register-form" class="auth-form">
+                    <form onsubmit="handleRegister(event)">
+                        <input type="text" id="register-username" placeholder="Username" required>
+                        <input type="email" id="register-email" placeholder="Email" required>
+                        <input type="text" id="register-fullname" placeholder="Full Name" required>
+                        <input type="password" id="register-password" placeholder="Password" minlength="6" required>
+                        <button type="submit" class="auth-btn">📝 Sign Up</button>
+                    </form>
+                </div>
+                
+                <div id="auth-message" class="message"></div>
+            </div>
+        </div>
+        
+        <!-- Main App Section -->
+        <div id="main-section" class="main-container" style="display: none;">
+            <!-- Header -->
+            <div class="header">
+                <h1>🏥 Healthcare AI Assistant</h1>
+                <div class="user-info">
+                    <span id="user-name">User</span>
+                    <button onclick="logout()" class="logout-btn">Logout</button>
+                </div>
+            </div>
+            
+            <!-- Content -->
+            <div class="content">
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <div class="section">
+                        <h3>📁 Documents</h3>
+                        <div class="upload-area" onclick="document.getElementById('file-input').click()">
+                            <p>📤 Click to upload PDFs</p>
+                            <input type="file" id="file-input" multiple accept=".pdf" style="display: none;" onchange="handleFileUpload(event)">
+                        </div>
+                        <div id="document-list" class="document-list"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>💬 Chat Actions</h3>
+                        <button onclick="clearChatHistory()" class="action-btn">Clear History</button>
+                    </div>
+                </div>
+                
+                <!-- Chat Area -->
+                <div class="chat-area">
+                    <div id="chat-messages" class="chat-messages"></div>
+                    <div class="chat-input-area">
+                        <input type="text" id="chat-input" placeholder="Ask about your medical documents..." maxlength="500">
+                        <button onclick="sendMessage()" id="send-btn">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Loading overlay -->
+        <div id="loading" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Processing...</p>
+        </div>
+    </div>
+    
+    <script src="/static/script.js"></script>
+</body>
+</html>
