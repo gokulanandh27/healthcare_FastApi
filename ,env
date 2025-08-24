@@ -1,0 +1,9 @@
+@"
+DATABASE_URL=postgresql://gokul:Gokul2712@healthcare-postgres:5432/healthcare_db
+GEMINI_API_KEY=REPLACE_ME
+GOOGLE_API_KEY=REPLACE_ME
+SECRET_KEY=healthcare-secret-key-2024-super-secure-random-string
+HOST=0.0.0.0
+PORT=8000
+DEBUG=True
+"@
